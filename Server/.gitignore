@@ -1,3 +1,42 @@
 node_modules/
 *.env.local
 *.env.development.local
+dist
+dist-ssr
+*.local
+
+# optional Node/Nest artifacts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# istanbul coverage
+coverage/
+
+# npm cache
+.npm
+.npmrc
+
+# eslint cache
+.eslintcache
+
+# IDE/editor folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
