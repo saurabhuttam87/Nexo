@@ -1,115 +1,151 @@
-Nexo – Social Media Platform
-Nexo is a full-stack social media platform inspired by Facebook, designed to connect people, share content, and build communities in real-time.
-📌 Features
-🔐 Authentication & Authorization
-User signup/login (JWT / OAuth optional)
-🧑‍🤝‍🧑 User Profiles
-Profile picture, bio, and personal details
-📝 Post Creation
-Text, images, and media sharing
-❤️ Likes & Comments
-Engage with posts in real-time
-📨 Messaging System
-One-to-one chat functionality
-📰 News Feed
-Dynamic feed based on user activity
-🔔 Notifications
-Real-time alerts for interactions
-🔍 Search
-Find users and posts easily
-🏗️ Tech Stack
-Frontend
-React.js / Next.js
-Tailwind CSS / Bootstrap
-Axios / Fetch API
-Backend
-Node.js + Express.js
-Database
-MongoDB (Mongoose ORM)
-Other Tools
-JWT Authentication
-Socket.IO (for real-time chat)
-Cloudinary (for media storage)
-📂 Project Structure
+# Nexo
 
-Nexo/
-│
-├── client/         # Frontend (React)
-├── server/         # Backend (Node.js/Express)
-├── models/         # Database models
-├── routes/         # API routes
-├── controllers/    # Business logic
-├── middleware/     # Auth & validation
-└── config/         # DB & app config
-⚙️ Installation & Setup
-1️⃣ Clone Repository
-Bash
-git clone https://github.com/your-username/nexo.git
-cd nexo
-2️⃣ Install Dependencies
-Bash
-# Backend
-cd server
-npm install
+A modern social messaging platform built with React and Vite, featuring real-time messaging, user profiles, and social connectivity.
 
-# Frontend
-cd ../client
-npm install
-3️⃣ Environment Variables
-Create .env file in /server:
+## Features
 
-PORT=5000
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_secret_key
-CLOUDINARY_API_KEY=your_key
-4️⃣ Run Project
-Bash
-# Run backend
-cd server
-npm run dev
+- **User Authentication** - Secure authentication with Clerk
+- **Messaging** - Real-time chat and messaging capabilities
+- **Social Feed** - Discover posts and updates from your network
+- **User Profiles** - View and manage user profiles
+- **Stories** - Share temporary stories with your connections
+- **Connection Discovery** - Find and connect with other users
+- **Responsive Design** - Fully responsive UI built with Tailwind CSS
 
-# Run frontend
+## Tech Stack
+
+- **Frontend Framework**: React 19
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS 4
+- **Routing**: React Router v7
+- **Authentication**: Clerk
+- **UI Icons**: Lucide React
+- **Date Handling**: Moment.js
+- **Notifications**: React Hot Toast
+- **Code Quality**: ESLint
+
+## Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd Nexo
+```
+
+2. Install dependencies:
+```bash
 cd client
-npm start
-🔗 API Endpoints (Sample)
-Method
-Endpoint
-Description
-POST
-/api/auth/register
-Register user
-POST
-/api/auth/login
-Login user
-GET
-/api/posts
-Get all posts
-POST
-/api/posts
-Create post
-PUT
-/api/posts/:id/like
-Like post
-🧠 Key Concepts (Interview Focus)
-REST API design
-Authentication using JWT
-Real-time communication (Socket.IO)
-MVC architecture
-State management in React
-Database schema design
-🚀 Future Enhancements
-📹 Video sharing & reels
-🤖 AI-based content recommendation
-🌐 Multi-language support
-🔒 Two-factor authentication
-📊 Analytics dashboard
-🤝 Contributing
-Contributions are welcome!
-Fork the repo
-Create a new branch
-Commit your changes
-Submit a PR
-📜 License
-This project is licensed under the MIT License.
-👨‍💻 Author
-Saurabh Uttam
+npm install
+```
+
+## Running the Application
+
+### Development Mode
+```bash
+npm run dev
+```
+The application will start on `http://localhost:5173` (Vite's default port)
+
+### Build for Production
+```bash
+npm run build
+```
+
+### Preview Production Build
+```bash
+npm run preview
+```
+
+### Lint Code
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+client/
+├── src/
+│   ├── components/          # Reusable components
+│   │   ├── ChatBox.jsx
+│   │   ├── Loading.jsx
+│   │   ├── MenuItems.jsx
+│   │   ├── PostCard.jsx
+│   │   ├── RecentMessages.jsx
+│   │   ├── Sidebar.jsx
+│   │   ├── StoriesBar.jsx
+│   │   ├── StoryViewer.jsx
+│   │   ├── UserCard.jsx
+│   │   ├── UserProfileInfo.jsx
+│   │   └── Storymodel.jsx
+│   ├── pages/               # Page components
+│   │   ├── ChatBox.jsx
+│   │   ├── Connections.jsx
+│   │   ├── CreatePost.jsx
+│   │   ├── Discover.jsx
+│   │   ├── Feed.jsx
+│   │   ├── Layout.jsx
+│   │   ├── Login.jsx
+│   │   ├── Messages.jsx
+│   │   └── Profile.jsx
+│   ├── assets/              # Static assets
+│   ├── App.jsx              # Main app component
+│   ├── main.jsx             # Entry point
+│   └── index.css            # Global styles
+├── public/                  # Static files
+├── package.json             # Project dependencies
+├── vite.config.js          # Vite configuration
+└── eslint.config.js        # ESLint configuration
+```
+
+## Key Pages
+
+- **Login** - User authentication page
+- **Feed** - Main feed showing posts from connections
+- **Messages** - Direct messaging interface
+- **Discover** - Find new users and content
+- **Connections** - View and manage user connections
+- **Profile** - User profile and settings
+- **CreatePost** - Create new posts
+- **ChatBox** - Individual chat interface
+
+## Configuration
+
+### Environment Variables
+Create a `.env.local` file in the `client` directory with your Clerk configuration:
+```
+VITE_CLERK_PUBLISHABLE_KEY=your_clerk_key_here
+```
+
+### Clerk Setup
+1. Sign up at [clerk.com](https://clerk.com)
+2. Create a new Clerk application
+3. Copy your publishable key and add it to your environment variables
+
+## Development Guidelines
+
+- Follow ESLint rules: `npm run lint`
+- Use React hooks for state management
+- Keep components modular and reusable
+- Use Tailwind CSS for styling
+- Add proper error handling and loading states
+
+## Contributing
+
+1. Create a new branch for your feature
+2. Make your changes and test thoroughly
+3. Run linting to ensure code quality
+4. Submit a pull request with a clear description
+
+## License
+
+This project is private and proprietary.
+
+## Support
+
+For issues or questions, please reach out to the project maintainers.
