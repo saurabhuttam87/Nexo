@@ -33,7 +33,7 @@ A modern social messaging platform built with React and Vite, featuring real-tim
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/saurabhuttam87/Nexo.git
 cd Nexo
 ```
 
