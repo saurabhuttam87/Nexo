@@ -272,7 +272,7 @@ export const getUserProfiles = async (req, res) => {
         const {profileId} = req.body;
         const profile = await User.findById(profileId)
         if(!profile) {
-            res.json({success: false, message: 'Profile Not Found'})
+            return res.json({success: false, message: 'Profile Not Found'})
         }
         const posts = await Post.find({user: profileId}).populate(`user`)
         res.json({success: true, profile, posts})

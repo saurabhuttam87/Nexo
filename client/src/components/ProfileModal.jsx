@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { dummyUserData } from '../assets/assets'
 import { Pencil } from 'lucide-react'
+import { useSelector } from 'react-redux';
 
 const ProfileModal = ({setShowEdit}) => {
-    const user = dummyUserData
+    
+    const user = useSelector((state)=>state.user.value)
     const [editForm, setEditForm] = useState({
         username: user.username,
         bio: user.bio,
@@ -68,7 +70,7 @@ const ProfileModal = ({setShowEdit}) => {
                             <label className='block text-sm font-medium text-gray-700 mb-1'>
                                 Bio
                             </label>
-                            <textarea role={3} type="text" className='w-full p-3 border border-gray-200 rounded-lg' placeholder='Please enter your short bio' onChange={(e) => setEditForm({...editForm, bio: e.target.value})} value={editForm.bio}/>
+                            <textarea rows={3} className='w-full p-3 border border-gray-200 rounded-lg' placeholder='Please enter your short bio' onChange={(e) => setEditForm({...editForm, bio: e.target.value})} value={editForm.bio}/>
                         </div>
                         <div>
                             <label className='block text-sm font-medium text-gray-700 mb-1'>
