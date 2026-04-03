@@ -7,13 +7,13 @@ import { inngest } from '../inngest/index.js';
 // Add User Story
 export const addUserStory = async (req, res) => {
     try {
-        const {userid} = req.auth();
+        const { userId } = req.auth();
         const {content, media_type, background_color} = req.body;
         const media = req.file
         let media_url = ''
 
-        //  upload media to immagekit
-        if(media_type === 'image' || media_url === 'video') {
+        //  upload media to imagekit
+        if(media_type === 'image' || media_type === 'video') {
             const fileBuffer = fs.readFileSync(media.path)
             const response = await imagekit.upload({
                 file: fileBuffer,
@@ -23,7 +23,7 @@ export const addUserStory = async (req, res) => {
         }
         // Create Story
         const story = await Story.create({
-            user: userid,
+            user: userId,
             content,
             media_url,
             media_type,
@@ -50,8 +50,8 @@ export const getStories = async (req, res) => {
         const {userId} = req.auth();
         const user = await User.findById(userId)
         
-        // User connections and followings
-        const userIds = {userid, ...user.connections, ...user.following}
+            // User connections and followings
+        const userIds = [userId, ...(user.connections || []), ...(user.following || [])]
 
         const stories = await Story.find({
             user: {$in: userIds}

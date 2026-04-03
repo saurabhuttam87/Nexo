@@ -28,8 +28,8 @@ const Profile = () => {
       const {data} = await api.post(`/api/user/profiles`, {profileId}, {
         headers: {Authorization: `Bearer ${token}`}
       })
-      if(data.success) {
-        setUser(data.Profile)
+      if (data.success) {
+        setUser(data.profile)
         setPosts(data.posts)
       } else {
         toast.error(data.message)

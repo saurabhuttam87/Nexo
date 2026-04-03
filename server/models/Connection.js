@@ -6,6 +6,9 @@ const connectionSchema = new mongoose.Schema({
     status: {type: String, enum: ['pending', 'accepted'], default: 'pending'},
 }, {timestamps: true})
 
+// Ensure one connection record per directed pair
+connectionSchema.index({ from_user_id: 1, to_user_id: 1 }, { unique: true })
+
 const Connection = mongoose.model('Connection', connectionSchema)
 
 export default Connection
